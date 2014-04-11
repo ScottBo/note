@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="register.css" type="text/css">
+</head>
+<body>
+    {% if fr.errors%}
+        {{ fr.errors|pluralize }}
+    {% endif %}
+    {% if user %}
+        {{ user.ui_name }}
+    {% endif %}
+    <form method="POST" action="register.html">
+        {% csrf_token %}
+        {{ fr.uif_name }}<br/>
+        {{ fr.uif_password }}<br/>
+        {{ fr.uif_sex }}<br/>
+        {{ fr.uif_email }}<br/>
+        <input type="submit" value="提交">
+    </form> 
+</body>
+</html>
