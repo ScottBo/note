@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="register.css" type="text/css">
+</head>
+<body>
+    {% if fr.errors%}
+        {{ fr.errors|pluralize }}
+    {% endif %}
+    <form method="POST" action="/login">
+        {% csrf_token %}
+        {{ fr.ul_name }}<br/>
+        {{ fr.ul_password }}<br/>
+        <input type="submit" value="提交">
+    </form> 
+</body>
+</html>

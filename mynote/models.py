@@ -11,6 +11,11 @@ class userInfo(models.Model):
     ui_email = models.EmailField()
     ui_create_date_time = models.DateTimeField()
     ui_last_login_time = models.DateTimeField()
+    def __str__(self):
+        return u"%s--%s" % (self.ui_name,self.ui_password)
+
+    def __unicode__(self):
+        return u"%s--%s" % (self.ui_name,self.ui_password)
 
 #笔记所属类目
 class noteCate(models.Model):

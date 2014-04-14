@@ -1,6 +1,10 @@
 # -*- coding: utf-8 -*-
 from django import forms
 from captcha.fields  import CaptchaField
+class userLoginForm(forms.Form):
+    ul_name = forms.CharField()
+    ul_password = forms.CharField( widget=forms.PasswordInput )
+
 class userInfoForm(forms.Form):
     RADIO_CHOICES=((1,"man"),(2,"woman"))
     uif_name = forms.CharField( label=u"用户名" )
