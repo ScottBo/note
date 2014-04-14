@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.http import HttpResponse,HttpResponseRedirect
 from django.core.context_processors import csrf
 from django.template import RequestContext
 from django.shortcuts import render_to_response
@@ -20,7 +20,7 @@ def login(request):
                 user = userInfo.objects.get(ui_name=username)
                 real_pwd=hashlib.md5(user.ui_rand_sha+password).hexdigest()
                 if real_pwd==user.ui_password:
-                    return HttpResponse("Login OK  %s"% username)
+                    return HttpResponseRedirect("/note_manage")
                 else:
                     return HttpResponse("Login Fail Pwd not right");
             except:
@@ -28,6 +28,7 @@ def login(request):
     else:
         fr=userLoginForm()
     return render_to_response("login.html",{"fr":fr},context_instance=RequestContext(request))
+
 def register(request):
     if request.method == "POST":
         fr=userInfoForm(request.POST)
@@ -46,3 +47,9 @@ def register(request):
     else:
         fr=userInfoForm()
     return render_to_response("register.html",{"fr":fr},context_instance=RequestContext(request))
+
+def note_manage(request):
+    return render_to_response("manage/index.html",{},context_instance=RequestContext(request))
+
+def note_add(request):
+    return render_to_response("manage/add_note.html",{},context_instance=RequestContext(request))

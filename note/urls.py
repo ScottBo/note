@@ -11,5 +11,7 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^register.html$','mynote.views.register'),
     url(r'^login$','mynote.views.login'),
+    url(r'^note_manage$','mynote.views.note_manage'),
+    url(r'^note_add$','mynote.views.note_add'),
     url(r'^captcha/', include('captcha.urls')),
 )

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="/static/manage/manage_index.css" type="text/css">
+    <script src="/static/manage/js/tinymce/tinymce.min.js"></script>
+    <script>
+        tinymce.init({selector:'textarea',plugins: "image,insertdatetime,fullpage",
+            toolbar: "insertdatetime",
+            insertdatetime_formats: ["%Y.%m.%d", "%H:%M"]
+        });
+        </script>
+    </script>
+</head>
+<body>
+    <div class="left_nav">
+        <div class="nav_title">操作</div>
+        <div class="nav_action">
+            <ul class="link_action">
+                <li><a href="/note_add">添加记录</a></li>
+                <li>草稿箱</li>
+                <li>设置默认编辑器</li>
+            </ul>
+        </div>
+    </div>
+    <div class="right_container">
+        <form action="" method="POST">
+            <div>标题</div>
+            <input type="text" name="note_title">
+            <div>内容</div>
+            <textarea name="note_content">Your content here.</textarea>
+            <input type="submit" value="submit">
+        </form>
+    </div>
+</body>
+</html>
