@@ -14,4 +14,5 @@ urlpatterns = patterns('',
     url(r'^note_add$','mynote.views.note_add'),
     url(r'^captcha/', include('captcha.urls')),
     url(r'^manage/(?P<username>\w{1,})/$','mynote.views.note_manage'),
+    url(r'^is_user_exist/','mynote.views.is_user_exist'),
 )

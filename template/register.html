@@ -6,20 +6,39 @@
     <link rel="stylesheet" href="/static/register.css" type="text/css">
 </head>
 <body>
-    {% if fr.errors%}
-        {{ fr.errors|pluralize }}
-    {% endif %}
     {% if user %}
         {{ user.ui_name }}
     {% endif %}
     <form method="POST" action="register.html">
         {% csrf_token %}
-        {{ fr.uif_name }}<br/>
-        {{ fr.uif_password }}<br/>
-        {{ fr.uif_sex }}<br/>
-        {{ fr.uif_email }}<br/>
-        {{ fr.uif_captcha }}<br/>
+        <div class="div_input">
+            <label for="id_uif_name"><font>*</font>用户名:</label>
+            {{ fr.uif_name }}
+            <span id="username_error">{{ fr.errors.uif_name }}{{ error }}</span>
+        </div>
+        <div class="div_input">
+            <label for="id_uif_password"><font>*</font>密码:</label>
+            {{ fr.uif_password }}
+            {{ fr.errors.uif_password }}
+        </div>
+        <div class="div_input">
+            <label for="id_uif_sex"><font>*</font>性别:</label>
+            {{ fr.uif_sex }}
+            {{ fr.errors.uif_sex }}
+        </div>
+        <div class="div_input">
+            <label for="id_uif_email"><font>*</font>E-mail:</label>
+            {{ fr.uif_email }}
+            {{ fr.errors.uif_email }}
+        </div>
+        <div class="div_input">
+            <label for="id_uif_captcha_1"><font>*</font>验证码:</label>
+            {{ fr.uif_captcha }}
+            {{ fr.errors.uif_captcha }}
+        </div>
         <input type="submit" value="提交">
     </form> 
+    <script src="/static/jslib/jquery.min.js"></script>
+    <script src="/static/js/register.js"></script>
 </body>
 </html>

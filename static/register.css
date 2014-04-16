@@ -2,6 +2,20 @@
     margin:0;
     padding:0;
 }
+.div_input{
+    margin:5px;
+}
+.div_input ul,.div_input ul li{
+    display:inline;
+    margin-right:15px;
+}
+div>label{
+    display:block;
+    float:left;
+    width:100px;
+    text-align:right;
+    margin-right:10px;
+}
 label>font{
     color:red;
 }
@@ -11,11 +25,6 @@ label>font{
 input{
     background:transparent;
 }
-.input_label{
-    float:left;
-    vertical-align:middle;
-    line-height:18px;
-}
 input[type="text"],input[type="password"],input[type="email"]{
     border:1px solid #CACACA;
     background:none repeat scroll 0% 0% #FFF
@@ -23,7 +32,6 @@ input[type="text"],input[type="password"],input[type="email"]{
     height:18px;
     line-height:18px;
     padding:3px;
-    display:block;
 }
 input:hover,input:focus{
     border:1px solid green;

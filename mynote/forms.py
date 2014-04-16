@@ -6,9 +6,9 @@ class userLoginForm(forms.Form):
     ul_password = forms.CharField( widget=forms.PasswordInput )
 
 class userInfoForm(forms.Form):
-    RADIO_CHOICES=((1,"man"),(2,"woman"))
-    uif_name = forms.CharField( label=u"用户名" )
-    uif_password = forms.CharField( label=u"密码", widget=forms.PasswordInput )
-    uif_sex = forms.ChoiceField( label=u"性别",choices=RADIO_CHOICES )
-    uif_email = forms.EmailField( label=u"Email" )
+    RADIO_CHOICES=((1,"男"),(2,"女"))
+    uif_name = forms.CharField( error_messages={'required':'Please enter your name!'} )
+    uif_password = forms.CharField( error_messages={'required':'Please enter your password!'}, widget=forms.PasswordInput )
+    uif_sex = forms.ChoiceField( widget=forms.RadioSelect, error_messages={'required':'Please select your sex!'},choices=RADIO_CHOICES )
+    uif_email = forms.EmailField( error_messages={'required':'Please enter your email!'})
     uif_captcha = CaptchaField()
