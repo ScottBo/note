@@ -6,6 +6,9 @@
     <link rel="stylesheet" href="/static/manage/manage_index.css" type="text/css">
 </head>
 <body>
+    {% if username %}
+       Welcome: {{username}}
+    {% endif %}
     <div class="left_nav">
         <div class="nav_title">操作</div>
         <div class="nav_action">

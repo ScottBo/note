@@ -9,7 +9,7 @@
     {% if fr.errors%}
         {{ fr.errors|pluralize }}
     {% endif %}
-    <form method="POST" action="/login">
+    <form method="POST" action="/user_login/">
         {% csrf_token %}
         {{ fr.ul_name }}<br/>
         {{ fr.ul_password }}<br/>

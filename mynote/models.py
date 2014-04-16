@@ -1,21 +1,11 @@
 # -*- coding: utf-8 -*-
 from django.db import models
-
+from django.contrib.auth.models import User
 # Create your models here.
 #用户表
 class userInfo(models.Model):
-    ui_name = models.CharField( max_length=100 )
-    ui_rand_sha = models.CharField( max_length=10 )
-    ui_password = models.CharField( max_length=100 )
+    user = models.OneToOneField(User)
     ui_sex = models.IntegerField()
-    ui_email = models.EmailField()
-    ui_create_date_time = models.DateTimeField()
-    ui_last_login_time = models.DateTimeField()
-    def __str__(self):
-        return u"%s--%s" % (self.ui_name,self.ui_password)
-
-    def __unicode__(self):
-        return u"%s--%s" % (self.ui_name,self.ui_password)
 
 #笔记所属类目
 class noteCate(models.Model):
